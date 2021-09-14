@@ -1,25 +1,53 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
-function App() {
+const randomColor = require('randomcolor'); // import the script
+export default function App() {
+  const [customColor, setColor] = useState();
+  const [colorChoice, setColorChoice] = useState('');
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <h1>Random Color Generator</h1>
+      <div
+        style={{
+          backgroundColor: `${customColor}`,
+          border: '15px',
+          padding: '50px',
+          margin: '20px',
+        }}
+      >
+        {customColor}
+        <br />
+        <input
+          value={colorChoice}
+          placeholder="Enter Hue and Luminosity"
+          onChange={(event) => {
+            const userInput = event.currentTarget.value;
+            setColorChoice(userInput);
+          }}
+        />
+
+        <br />
+
+        <button
+          onClick={() => {
+            /* trying out hue luminosity
+            if (randomColor(colorChoice)) {
+              const userColor = randomColor({
+                hue: colorChoice,
+                luminosity: colorChoice,
+              });
+
+              setColor(userColor);
+            }
+            setColor(randomColor.randomColor());
+          }}*/
+            setColor(randomColor.randomColor());
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          Output
+        </button>
+      </div>
     </div>
   );
 }
-
-export default App;
