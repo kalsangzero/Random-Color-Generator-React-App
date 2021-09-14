@@ -4,13 +4,13 @@ import { useState } from 'react';
 const randomColor = require('randomcolor'); // import the script
 export default function App() {
   const [customColor, setColor] = useState();
-  //const [colorChoice, setColorChoice] = useState('');
+  // const [colorChoice, setColorChoice] = useState('');
   return (
     <div className="App">
       <h1>Random Color Generator</h1>
       <div
         style={{
-          backgroundColor: `${customColor}`,
+          backgroundColor: customColor,
           border: '15px',
           padding: '50px',
           margin: '20px',
