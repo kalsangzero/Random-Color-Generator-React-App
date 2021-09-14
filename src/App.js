@@ -4,7 +4,7 @@ import { useState } from 'react';
 const randomColor = require('randomcolor'); // import the script
 export default function App() {
   const [customColor, setColor] = useState();
-  const [colorChoice, setColorChoice] = useState('');
+  //const [colorChoice, setColorChoice] = useState('');
   return (
     <div className="App">
       <h1>Random Color Generator</h1>
@@ -18,7 +18,11 @@ export default function App() {
       >
         {customColor}
         <br />
-        <input
+
+        <button
+          onClick={() => {
+            /* trying out hue luminosity
+            <input
           value={colorChoice}
           placeholder="Enter Hue and Luminosity"
           onChange={(event) => {
@@ -26,12 +30,6 @@ export default function App() {
             setColorChoice(userInput);
           }}
         />
-
-        <br />
-
-        <button
-          onClick={() => {
-            /* trying out hue luminosity
             if (randomColor(colorChoice)) {
               const userColor = randomColor({
                 hue: colorChoice,
@@ -45,7 +43,7 @@ export default function App() {
             setColor(randomColor.randomColor());
           }}
         >
-          Output
+          Random
         </button>
       </div>
     </div>
